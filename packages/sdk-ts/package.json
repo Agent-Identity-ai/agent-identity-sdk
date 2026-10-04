@@ -1,0 +1,75 @@
+{
+  "name": "@agentidentity/sdk",
+  "version": "0.5.0",
+  "description": "TypeScript client for Agent Identity — give an agent its own email address, durable event stream, agent-to-agent tasks, and encrypted secret vault.",
+  "license": "MIT",
+  "keywords": [
+    "agent",
+    "ai-agent",
+    "email",
+    "identity",
+    "webhooks",
+    "a2a",
+    "agent2agent",
+    "mcp",
+    "events",
+    "sdk"
+  ],
+  "homepage": "https://www.agent-identity.dev/docs",
+  "type": "module",
+  "main": "dist/cjs/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./errors": {
+      "import": {
+        "types": "./dist/errors.d.ts",
+        "default": "./dist/errors.js"
+      },
+      "require": {
+        "types": "./dist/cjs/errors.d.ts",
+        "default": "./dist/cjs/errors.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsc -b && tsc -p tsconfig.cjs.json && node -e \"require('fs').writeFileSync('dist/cjs/package.json','{\\\"type\\\":\\\"commonjs\\\"}\\n')\"",
+    "typecheck": "tsc -b --noEmit",
+    "lint": "eslint src",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "dotenv": "^16.4.5"
+  },
+  "module": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Agent-Identity-ai/agent-identity-sdk.git",
+    "directory": "packages/sdk-ts"
+  },
+  "bugs": "https://github.com/Agent-Identity-ai/agent-identity-sdk/issues"
+}

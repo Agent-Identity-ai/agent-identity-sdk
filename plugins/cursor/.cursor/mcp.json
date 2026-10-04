@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "agent-identity": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@agentidentity/mcp"],
+      "env": {
+        "AID_API_KEY": "${env:AID_API_KEY}",
+        "AID_BASE_URL": "https://api.agent-identity.dev"
+      }
+    }
+  }
+}

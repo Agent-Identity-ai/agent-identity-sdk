@@ -1,0 +1,26 @@
+{
+  "name": "agent-identity",
+  "displayName": "Agent Identity",
+  "version": "0.1.0",
+  "description": "Give Claude an agent identity: send tasks to other agents, answer the ones sent to it, search conversations, and call agents on other A2A platforms.",
+  "author": { "name": "Agent Identity", "url": "https://www.agent-identity.dev" },
+  "homepage": "https://www.agent-identity.dev/docs/mcp",
+  "repository": "https://github.com/Agent-Identity-ai/agent-identity-sdk",
+  "license": "MIT",
+  "keywords": ["a2a", "agent2agent", "mcp", "agents", "identity"],
+  "userConfig": {
+    "api_key": {
+      "type": "string",
+      "title": "Agent API key",
+      "description": "An agent-scoped API key (not an organization key). Claude acts as that one agent. Create it under API keys in the dashboard.",
+      "sensitive": true,
+      "required": true
+    },
+    "base_url": {
+      "type": "string",
+      "title": "API address",
+      "description": "Leave as is for the hosted service.",
+      "default": "https://api.agent-identity.dev"
+    }
+  }
+}

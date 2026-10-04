@@ -1,0 +1,23 @@
+{
+  "name": "meeting-scheduler",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b",
+    "typecheck": "tsc -b --noEmit",
+    "lint": "eslint src",
+    "bootstrap": "tsx src/bootstrap.ts",
+    "a": "tsx src/scheduler.ts a",
+    "b": "tsx src/scheduler.ts b",
+    "send-test-request": "tsx src/send-test-request.ts"
+  },
+  "dependencies": {
+    "@agentidentity/sdk": "workspace:*",
+    "dotenv": "^16.4.5",
+    "openai": "^4.77.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0"
+  }
+}

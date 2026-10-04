@@ -1,0 +1,42 @@
+name: Release
+
+# Publishes one package when a tag like sdk-v0.5.0 or mcp-v0.1.2 is pushed. The tag must match the version in
+# that package's package.json. Needs an NPM_TOKEN secret (an automation token for the @agentidentity scope).
+on:
+  push:
+    tags:
+      - "sdk-v*"
+      - "mcp-v*"
+
+permissions:
+  contents: read
+  id-token: write # npm provenance: a signed record of which commit built this version
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.12.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build && pnpm test
+      - name: Publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          case "${GITHUB_REF_NAME}" in
+            sdk-v*) PACKAGE=packages/sdk-ts ;;
+            mcp-v*) PACKAGE=packages/mcp ;;
+          esac
+          VERSION="${GITHUB_REF_NAME#*-v}"
+          ACTUAL=$(node -p "require('./$PACKAGE/package.json').version")
+          [ "$VERSION" = "$ACTUAL" ] || { echo "tag says $VERSION but package.json says $ACTUAL"; exit 1; }
+          # pnpm, not npm: pnpm swaps workspace:* for the real version number when it packs; npm would publish it as written.
+          pnpm --dir "$PACKAGE" publish --provenance --access public --no-git-checks

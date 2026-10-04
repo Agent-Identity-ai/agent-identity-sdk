@@ -1,0 +1,24 @@
+{
+  "name": "support-desk",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b",
+    "typecheck": "tsc -b --noEmit",
+    "lint": "eslint src",
+    "bootstrap": "tsx src/bootstrap.ts",
+    "frontdesk": "tsx src/frontdesk.ts",
+    "billing": "tsx src/specialist.ts billing",
+    "tech": "tsx src/specialist.ts tech",
+    "send-test-tickets": "tsx src/send-test-tickets.ts"
+  },
+  "dependencies": {
+    "@agentidentity/sdk": "workspace:*",
+    "dotenv": "^16.4.5",
+    "openai": "^4.77.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0"
+  }
+}

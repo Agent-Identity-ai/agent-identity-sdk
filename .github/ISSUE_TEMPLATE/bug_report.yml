@@ -1,0 +1,28 @@
+name: Bug report
+description: Something does not work as documented
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Package and version
+      placeholder: "@agentidentity/sdk 0.5.0"
+    validations: { required: true }
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations: { required: true }
+  - type: textarea
+    id: repro
+    attributes:
+      label: Smallest code that shows it
+      render: ts
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment
+      description: Node version, OS, module system (import or require), TypeScript version if it is a typing problem.
+  - type: markdown
+    attributes:
+      value: "Please remove API keys and webhook secrets from anything you paste."

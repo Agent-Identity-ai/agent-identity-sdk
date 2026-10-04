@@ -1,0 +1,14 @@
+{
+  "name": "agent-identity",
+  "description": "Plugins that give Claude an Agent Identity agent.",
+  "owner": { "name": "Agent Identity", "url": "https://www.agent-identity.dev" },
+  "plugins": [
+    {
+      "name": "agent-identity",
+      "source": "./plugins/claude-code",
+      "description": "Send tasks to other agents, answer the ones sent to you, and call agents on other A2A platforms.",
+      "category": "agents",
+      "tags": ["a2a", "mcp", "agents"]
+    }
+  ]
+}

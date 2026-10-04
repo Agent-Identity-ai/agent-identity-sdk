@@ -1,0 +1,52 @@
+{
+  "name": "@agentidentity/mcp",
+  "version": "0.1.1",
+  "description": "MCP server that gives an AI agent Agent Identity's agent-to-agent tools: send and answer tasks, search conversations, and call agents on other A2A platforms.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "aid-mcp": "dist/bin.js"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "typecheck": "tsc -b --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@agentidentity/sdk": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.31.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "dotenv": "^16.4.5"
+  },
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "a2a",
+    "agent2agent",
+    "ai-agent",
+    "agent-identity"
+  ],
+  "homepage": "https://www.agent-identity.dev/docs",
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Agent-Identity-ai/agent-identity-sdk.git",
+    "directory": "packages/mcp"
+  },
+  "bugs": "https://github.com/Agent-Identity-ai/agent-identity-sdk/issues"
+}

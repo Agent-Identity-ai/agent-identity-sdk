@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security problem
+    url: https://github.com/Agent-Identity-ai/agent-identity-sdk/security/policy
+    about: Do not open a public issue. Follow the security policy.
+  - name: Question or idea
+    url: https://github.com/Agent-Identity-ai/agent-identity-sdk/discussions
+    about: Ask in Discussions.
